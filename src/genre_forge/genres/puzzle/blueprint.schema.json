@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Puzzle Blueprint",
+  "description": "Parâmetros para geração de jogos do gênero Puzzle",
+  "type": "object",
+  "required": ["name", "genre", "pitch", "config", "params"],
+  "properties": {
+    "name": { "type": "string" },
+    "genre": { "type": "string", "const": "puzzle" },
+    "pitch": { "type": "string" },
+    "config": {
+      "type": "object",
+      "properties": {
+        "resolution": { "type": "array", "items": { "type": "integer" }, "default": [800, 600] },
+        "fps": { "type": "integer", "default": 60 },
+        "title": { "type": "string" }
+      }
+    },
+    "params": {
+      "type": "object",
+      "properties": {
+        "grid_width": { "type": "integer", "default": 10, "description": "Largura do grid em tiles" },
+        "grid_height": { "type": "integer", "default": 8, "description": "Altura do grid em tiles" },
+        "tile_size": { "type": "integer", "default": 64, "description": "Tamanho de cada tile em pixels" },
+        "level_count": { "type": "integer", "default": 5, "description": "Número de níveis" },
+        "puzzle_type": { "type": "string", "default": "sokoban", "enum": ["sokoban", "sliding", "match", "path"] },
+        "max_moves": { "type": "integer", "default": 0, "description": "Limite de movimentos (0 = sem limite)" }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sports Blueprint",
+  "description": "Parâmetros para geração de jogos do gênero Sports",
+  "type": "object",
+  "required": ["name", "genre", "pitch", "config", "params"],
+  "properties": {
+    "name": { "type": "string" },
+    "genre": { "type": "string", "const": "sports" },
+    "pitch": { "type": "string" },
+    "config": {
+      "type": "object",
+      "properties": {
+        "resolution": { "type": "array", "items": { "type": "integer" }, "default": [800, 600] },
+        "fps": { "type": "integer", "default": 60 },
+        "title": { "type": "string" }
+      }
+    },
+    "params": {
+      "type": "object",
+      "properties": {
+        "score_limit": { "type": "integer", "default": 7, "description": "Pontuação para vencer" },
+        "ball_speed": { "type": "number", "default": 300, "description": "Velocidade da bola" },
+        "ball_acceleration": { "type": "number", "default": 10, "description": "Aceleração por rebote" },
+        "paddle_speed": { "type": "number", "default": 400, "description": "Velocidade dos paddles" },
+        "paddle_height": { "type": "integer", "default": 80, "description": "Altura do paddle em pixels" },
+        "paddle_width": { "type": "integer", "default": 15, "description": "Largura do paddle em pixels" },
+        "has_ai": { "type": "boolean", "default": true, "description": "AI controla player 2" },
+        "ai_difficulty": { "type": "number", "default": 0.7, "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

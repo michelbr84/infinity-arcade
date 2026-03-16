@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Shooter Blueprint",
+  "description": "Parâmetros para geração de jogos do gênero Shooter",
+  "type": "object",
+  "required": ["name", "genre", "pitch", "config", "params"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome do jogo"
+    },
+    "genre": {
+      "type": "string",
+      "const": "shooter"
+    },
+    "pitch": {
+      "type": "string",
+      "description": "Descrição curta do jogo"
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "resolution": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "default": [800, 600]
+        },
+        "fps": {
+          "type": "integer",
+          "default": 60
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "params": {
+      "type": "object",
+      "properties": {
+        "player_speed": {
+          "type": "number",
+          "default": 300,
+          "description": "Velocidade do player em pixels/segundo"
+        },
+        "player_hp": {
+          "type": "integer",
+          "default": 3,
+          "description": "Pontos de vida do player"
+        },
+        "bullet_speed": {
+          "type": "number",
+          "default": 500,
+          "description": "Velocidade dos projéteis em pixels/segundo"
+        },
+        "fire_rate": {
+          "type": "number",
+          "default": 0.2,
+          "description": "Intervalo mínimo entre tiros em segundos"
+        },
+        "enemy_speed": {
+          "type": "number",
+          "default": 100,
+          "description": "Velocidade base dos inimigos"
+        },
+        "wave_count": {
+          "type": "integer",
+          "default": 5,
+          "description": "Número de ondas (0 = infinito)"
+        },
+        "enemies_per_wave": {
+          "type": "integer",
+          "default": 8,
+          "description": "Inimigos por onda"
+        },
+        "powerup_types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["speed", "shield", "multi_shot"]
+        }
+      }
+    }
+  }
+}
